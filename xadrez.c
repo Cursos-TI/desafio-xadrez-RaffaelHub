@@ -10,10 +10,8 @@ int main() {
     printf("2. Bispo\n"); // opção bispo
     printf("3. Rainha\n"); // opção rainha
     printf("Digite: ");
-    if (scanf("%d", &opcao) != 1) {
-        printf("Erro: Entrada inválida! Digite um número entre 1 e 3.\n");
-        return 1; // Finaliza o programa com erro
-    }
+    scanf("%d", &opcao);
+    
  
     printf("\n"); // usando quebra de linha para deixar o código mais bonito
 
