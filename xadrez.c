@@ -19,14 +19,14 @@ int main() {
     case 1: // movimento da torre, 5 movimentos para a direita, usando for
         for (int i = 1; i <= 5; i++)
         {
-            printf("Direita\n");
+            printf("Direita!\n");
         }
         break;
     case 2: // movimento do bispo, 5 movimento na diagonal, na direita, usando while
         i = 1;
         while(i <= 5)
         {
-            printf("Cima, Direita\n");
+            printf("Cima, Direita!\n");
             
             i++;
 
@@ -38,7 +38,7 @@ int main() {
         do
         {
 
-            printf("Esquerda\n");
+            printf("Esquerda!\n");
             i++;
 
         }while(i <= 8);
