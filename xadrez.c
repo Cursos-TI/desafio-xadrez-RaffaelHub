@@ -46,7 +46,7 @@ int main() {
         }while(i <= 8);
         
         break;
-        case 4:
+        case 4: // movimento do cavalo, usando loops aninhados
         printf("O movimento do Cavalo é\n");
 
 
