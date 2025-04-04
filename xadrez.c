@@ -1,19 +1,23 @@
 #include <stdio.h>
 
-void separador()
+
+// Função para imprimir um separador visual na tela
+void separador() 
 {
     printf("--------------------------------------------------\n");
     printf("//////////////////////////////////////////////////\n");
     printf("--------------------------------------------------\n");
 }
 
-void torre(int casa,int direcao)
+// Função para simular o movimento da torre
+// A torre anda em linha reta: frente, trás, esquerda ou direita
+void torre(int casa,int direcao) // Código de movimento da torre.
 {
-    if ( casa > 0)
+    if ( casa > 0) // Verifica se ainda há casas para percorrer
     {
-        torre (casa - 1, direcao);
+        torre (casa - 1, direcao); // Chamada recursiva para simular o movimento contínuo da peça
 
-        switch (direcao)
+        switch (direcao) // Define a direção com base no valor informado
         {
         case 1:
             printf("Frente\n");
@@ -36,10 +40,13 @@ void torre(int casa,int direcao)
     }
 }
 
+
+// Função para simular o movimento do bispo
+// O bispo se move apenas em diagonais
 void bispo(int casa,int direcao)
 {
 
-    switch(direcao)
+    switch(direcao) // Usa switch para lidar com as quatro diagonais possíveis
     {
     case 1:
 
@@ -97,12 +104,15 @@ void bispo(int casa,int direcao)
     
 }
 
+
+// Função para simular o movimento da rainha
+// A rainha se move em todas as direções
 void rainha(int casa ,int direcao)
 {
-    if (casa > 0)
+    if (casa > 0) // verifica se tem casas a correr
     {
     
-        rainha( casa - 1, direcao);
+        rainha( casa - 1, direcao); // decrementação continua
 
         switch(direcao)
         {
@@ -134,12 +144,15 @@ void rainha(int casa ,int direcao)
     }
 }
 
+
+// Função para simular o movimento do cavalo
+// O cavalo se move em 'L'
 void cavalo(int casa, int direcao)
 {   
 
     
 
-        switch(direcao)
+        switch(direcao) // Uso de switch por conta de multiplas escolhas
         {
         case 1:
         for (int i = 0, j = 2; i < 3; i++, j--)
@@ -256,30 +269,31 @@ void cavalo(int casa, int direcao)
 
 int main()
 {
-
+    // Declaração de váriaveis das funções acima e inicializações
     int opcao_menu,quantidade = 5,quantidade_rainha = 8,quantidade_cavalo = 3,comeco_fim = 0 ;
     
+    // uso do do-while para uma repetição boa e limpa
     do {
-        printf("***Bem vindo!***\n");
+        printf("***Bem vindo!***\n"); // Apresentação
         printf("Vamos simular os movimentos das peças de xadrez!\n");
         printf("Aperte qualquer tecla e de enter para iniciar!\n");
         getchar();
 
-        separador();
+        separador(); // função visual das linhas
 
-        printf("***MENU***\n");
-        printf("1. ♜-Torre\n");
-        printf("2. ♝-Bispo\n");
-        printf("3. ♛-Rainha\n");
-        printf("4. ♞-Cavalo\n");
+        printf("***MENU***\n"); // Menu
+        printf("1. ♜-Torre\n"); // opção torre
+        printf("2. ♝-Bispo\n"); // opção bispo
+        printf("3. ♛-Rainha\n"); // opção rainha
+        printf("4. ♞-Cavalo\n"); // opção cavalo
         printf("Selecione uma opção: ");
-        scanf("%d", &opcao_menu);
+        scanf("%d", &opcao_menu); // armazenando o valor
 
-        separador();
+        separador(); // função visual das linhas
 
-        switch(opcao_menu)
+        switch(opcao_menu) // uso de switch por conta de multiplas escolhas
         {
-        case 1:
+        case 1: // bloco de código da torre, aqui vocẽ vai selecionar o movimento dela
             printf("Você escolheu a Torre!\n");
             printf("A torre vai se movimentar 5 casas, mas precisamos saber o lado.\n");
             printf("1. Para frente\n");
@@ -288,13 +302,12 @@ int main()
             printf("4. para trás\n");
             printf("Escolha o movimento para ela: ");
             scanf("%d", &opcao_menu);
-            separador();
+            separador(); // função visual das linhas
             torre(quantidade, opcao_menu);
-            separador();
+            separador(); // função visual das linhas
+            break; // encerra o bloco
 
-
-            break;
-        case 2:
+        case 2: // o bloco de código do bispo, aqui você vai selecionar o movimento dele
             printf("Você escolheu o Bispo!\n");
             printf("O bispo vai se movimentar 5 casas no tabuleiro, mas precisamos saber a direção.\n");
             printf("1. Diagonal direita - para cima\n");
@@ -303,12 +316,12 @@ int main()
             printf("4. Diagonal esquerda - para baixo\n");
             printf("Escolha o movimento para ela: ");
             scanf("%d", &opcao_menu);
-            separador();
+            separador(); // funçãp visual das linhas
             bispo(quantidade, opcao_menu);
-            separador();
-            
-            break;
-        case 3:
+            separador(); // função visual das linhas
+            break; // encerra bloco
+
+        case 3: // bloco de código da rainha, aqui você vai selecionar os movimentos dela
             printf("Você escolheu a Rainha!\n");
             printf("A rainha vai se movimentar 8 casas, escolha uma direção!\n");
             printf("1. Cima\n");
@@ -321,11 +334,12 @@ int main()
             printf("8. Diagonal Esquerda - para cima\n");
             printf("Escolha uma opção: ");
             scanf("%d", &opcao_menu);
-            separador();
+            separador(); // função visual das linhas
             rainha(quantidade_rainha, opcao_menu);
-            separador();
-            break;
-        case 4:
+            separador(); // função visual das linhas
+            break; // encerra bloco
+
+        case 4: // bloco de codigo do cavalo, aqui você vai selecionar os movimentos dele
             printf("Você escolheu o cavalo!\n");
             printf("O cavalo se movimenta em 'L', Escolha a direção!\n");
             printf("1. 'L' Cima-Direita\n");
@@ -338,22 +352,22 @@ int main()
             printf("8. 'L' Cima-Esquerda\n");
             printf("Escolha uma opção: ");
             scanf("%d", &opcao_menu);
-            separador();
+            separador(); // função visual das linhas
             cavalo(quantidade_cavalo, opcao_menu);
-            separador();
-            break;
-            default:
+            separador(); // função visual das linhas
+            break; // encerra bloco
+            default: // esse bloco é caso o usuario digite um valor inesperado
             {
                 printf("Valor inválido\n");
-                break;
+                break; // encerra o bloco
             }
         }
-
+        // parte em que você decide se continua ou não jogando
         printf("Deseja jogar novamente? Digite 1 Para sim | 0 para o programa parar: ");
         scanf("%d", &comeco_fim);
-        separador();
+        separador(); // função visual das linhas
             
         
-    }while( comeco_fim == 1);
-    return 0;
+    }while( comeco_fim == 1); // while, se receber 1 ele reinicia o code
+    
 }
