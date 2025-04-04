@@ -81,10 +81,10 @@ void bispo(int casa,int direcao)
     case 4:
         for (int i =1; i <= 5; i++)
         {
-            printf("Baixo-\n");
+            printf("Baixo-");
             for (int j = 1; j <= 1; j++)
             {
-                printf("Esquerda\n");
+                printf("Esquerda");
             }
             printf("\n");   
         }
@@ -260,8 +260,8 @@ int main()
     int opcao_menu,quantidade = 5,quantidade_rainha = 8,quantidade_cavalo = 3,comeco_fim = 0 ;
     
     do {
-        printf("Bem vindo!\n");
-        printf("Vamos simular os movimentos das peças de xadrez\n");
+        printf("***Bem vindo!***\n");
+        printf("Vamos simular os movimentos das peças de xadrez!\n");
         printf("Aperte qualquer tecla e de enter para iniciar!\n");
         getchar();
 
@@ -349,7 +349,7 @@ int main()
             }
         }
 
-        printf("Deseja jogae novamente? Digite 1 Para sim | 0 para o programa parar: ");
+        printf("Deseja jogar novamente? Digite 1 Para sim | 0 para o programa parar: ");
         scanf("%d", &comeco_fim);
         separador();
             
